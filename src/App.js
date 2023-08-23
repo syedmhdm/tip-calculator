@@ -18,16 +18,12 @@ function App() {
   return (
     <div>
       <BillInput bill={bill} onBillChange={setBill} />
-      <SelectPercentage
-        tip={myTip}
-        onSetTip={setMyTip}
-        text={"How did you like the service?"}
-      />
-      <SelectPercentage
-        tip={friendTip}
-        onSetTip={setfriendTip}
-        text={"How did your friend like the service?"}
-      />
+      <SelectPercentage tip={myTip} onSetTip={setMyTip}>
+        How did you like the service?
+      </SelectPercentage>
+      <SelectPercentage tip={friendTip} onSetTip={setfriendTip}>
+        How did your friend like the service?
+      </SelectPercentage>
       <Output totalPay={totalPay} bill={bill} tip={tip} />
       <Reset reset={reset} />
     </div>
@@ -51,10 +47,10 @@ function BillInput({ bill, onBillChange }) {
   );
 }
 
-function SelectPercentage({ text, onSetTip, tip }) {
+function SelectPercentage({ children, onSetTip, tip }) {
   return (
     <div>
-      <p>{text}</p>
+      <p>{children}</p>
       <select value={tip} onChange={(e) => onSetTip(Number(e.target.value))}>
         <option value={0}>Dissatisfied (0%)</option>
         <option value={5}>It was okay (5%)</option>
