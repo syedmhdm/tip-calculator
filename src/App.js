@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function App() {
-  const [bill, setBill] = useState(0);
+  const [bill, setBill] = useState("");
   const [myTip, setMyTip] = useState(0);
   const [friendTip, setfriendTip] = useState(0);
 
